@@ -1,0 +1,26 @@
+import profesionales.*
+import universidades.*
+import empresas.*
+
+describe "test etapa 2" {
+	var juana = new ProfesionalVinculado()
+	var melina = new ProfesionalAsociado()
+	var rocio = new ProfesionalLibre()
+	var unq = new Universidad()
+	
+	fixture {
+		juana.universidad(unq)
+		melina.universidad(unq)
+	}
+	
+	test "test profesional vinculado" {
+		juana.cobrar(2000)
+		assert.equals(1000, unq.recaudado())
+	}
+	
+	test "test profesional asociado" {
+		melina.cobrar(2000)
+		assert.equals(2000, asociacionDeProfesionalesdelLitoral.recaudado() )
+		assert.equals(0, unq.recaudado())
+	}
+}

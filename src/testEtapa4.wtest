@@ -1,0 +1,44 @@
+import profesionales.*
+import universidades.*
+import empresas.*
+import solicitantes.*
+
+describe "test etapa 4" {
+	var univSanMartin = new Universidad()
+	var univRosario = new Universidad()
+	var univCorrientes = new Universidad()
+	var univHurlingham = new Universidad()
+	var juana = new ProfesionalVinculado()
+	var melina = new ProfesionalAsociado()
+	var rocio = new ProfesionalLibre()
+	var luciana = new ProfesionalLibre()
+	var empresa = new Empresa()
+	var solicitante = new Persona()
+	
+	fixture {
+		univSanMartin.provincia("Buenos Aires")
+		univSanMartin.honorariosPorHora(3500)
+		univRosario.provincia("Santa fe")
+		univRosario.honorariosPorHora(2800)
+		univCorrientes.provincia("Corrientes")
+		univCorrientes.honorariosPorHora(4200)
+		univHurlingham.provincia("Buenos Aires")
+		univHurlingham.honorariosPorHora(8800)
+		juana.universidad(univRosario)
+		melina.universidad(univCorrientes)
+		rocio.universidad(univHurlingham)
+		luciana.universidad(univRosario)
+		rocio.honorariosPorHora(5000)
+		luciana.honorariosPorHora(3200)
+		rocio.provinciasDondePuedeTrabajar(["Santa fe", "Cordoba", "Buenos Aires"])
+		luciana.provinciasDondePuedeTrabajar(["Santa fe", "Entre Rios"])
+		empresa.contratar(juana)
+		empresa.honorarioReferencia(3500)
+		solicitante.provincia("Santa fe")
+	}
+	
+	test "dar servicio" {
+		empresa.darServicio(solicitante)
+		assert.equals(1400, univRosario.recaudado())
+	}
+}
