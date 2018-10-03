@@ -41,7 +41,7 @@ describe "test etapa 1" {
 		assert.equals([rocio], empresa.profesionalesCaros())
 	}
 	test "universidades formadoras" {
-		assert.equals([univCorrientes, univRosario, univHurlingham ], empresa.universidadesFormadoras())
+		assert.equals(#{univCorrientes, univRosario, univHurlingham }, empresa.universidadesFormadoras().asSet())
 	}
 	test "profesional mas barato" {
 		assert.equals(juana, empresa.profesionalMasBarato())

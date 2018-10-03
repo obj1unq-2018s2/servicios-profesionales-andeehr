@@ -23,7 +23,6 @@ class Empresa {
 	method estaCubierta(provincia) = profesionales.any{profesional => profesional.provinciasDondePuedeTrabajar().contains(provincia)}
 	
 	method cuantosEstudiaronEn(universidad) = profesionales.count{profesional => profesional.universidad() == universidad }
-	
 
 
 // ETAPA 3 SOLICITANTES
