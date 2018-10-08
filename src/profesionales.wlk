@@ -60,6 +60,8 @@ class ProfesionalLibre {
 		dinero -= cuanto
 		profesional.recibirDinero(cuanto)
 	}
+	
+	// TODO ¿Por qué no usar directamente el cobrar?
 	method recibirDinero(cuanto) {
 		dinero += cuanto
 	}

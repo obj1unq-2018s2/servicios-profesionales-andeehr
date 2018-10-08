@@ -3,7 +3,12 @@ import universidades.*
 import empresas.*
 
 describe "test etapa 1" {
-	var univSanMartin = new Universidad()
+	// TODO Queda más fácil de leer así:
+	var univSanMartin = new Universidad(
+		provincia = "Buenos Aires",
+		honorariosPorHora = 3500		
+	)
+	
 	var univRosario = new Universidad()
 	var univCorrientes = new Universidad()
 	var univHurlingham = new Universidad()
@@ -14,8 +19,6 @@ describe "test etapa 1" {
 	var empresa = new Empresa()
 	
 	fixture {
-		univSanMartin.provincia("Buenos Aires")
-		univSanMartin.honorariosPorHora(3500)
 		univRosario.provincia("Santa fe")
 		univRosario.honorariosPorHora(2800)
 		univCorrientes.provincia("Corrientes")
